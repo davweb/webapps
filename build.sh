@@ -22,6 +22,7 @@ function create_app {
     popd
 }
 
+brew upgrade nativefier
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "UniFi Network" ubiquiti.png https://furia.home:8443/ --ignore-certificate
 create_app "BBC Sounds" bbc-sounds.png https://www.bbc.co.uk/sounds --internal-urls 'bbc.com' --internal-urls 'bbc.co.uk'
