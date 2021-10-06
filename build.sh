@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # Set temporary working directory
 OUTPUT=/var/tmp
@@ -15,7 +15,7 @@ function create_app {
 
     nativefier --electron-version ${ELECTRON_VERSION} ${EXTRAS} --name "${NAME}" --icon "${ICON}" --fast-quit  "${URL}" "${OUTPUT}" >/dev/null  2>&1
     
-    pkill "${NAME}"
+    pkill "${NAME}" || true
 
     pushd ${OUTPUT}
     pushd "${NAME}-darwin-x64"
