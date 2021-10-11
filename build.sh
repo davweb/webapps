@@ -19,7 +19,7 @@ function create_app {
 
     pushd ${OUTPUT}
     pushd "${NAME}-darwin-x64"
-    rm -r "/Applications/${NAME}.app"
+    rm -rf "/Applications/${NAME}.app"
     mv "${NAME}.app" /Applications
     popd
     rm -rf "${NAME}-darwin-x64"
@@ -45,10 +45,11 @@ rm -rf ${OUTPUT}/darwin-x64-template
 brew upgrade nativefier
 
 # Use most recent version of electron
-ELECTRON_VERSION=`curl --silent "https://api.github.com/repos/electron/electron/releases/latest" | jq --raw-output .tag_name | cut -c2-`
+ELECTRON_VERSION=`curl --silent "https://api.github.com/repos/electron/electron/releases" | jq --raw-output ".[].tag_name" | cut -c2- | sort | grep -Ev "alpha|beta" | tail -1`
 echo Using Election version ${ELECTRON_VERSION}
 
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "UniFi Network" ubiquiti.png https://furia.home:8443/ --ignore-certificate
 create_app "BBC Sounds" bbc-sounds.png https://www.bbc.co.uk/sounds --internal-urls 'bbc.com' --internal-urls 'bbc.co.uk'
 create_app "Overcast" overcast.png https://overcast.fm/podcasts --inject './overcast.js'
+create_app "Amazon Prime Video" prime.png https://www.amazon.co.uk/gp/video/storefront/
