@@ -45,7 +45,7 @@ rm -rf ${OUTPUT}/darwin-x64-template
 brew upgrade nativefier
 
 # Use most recent version of electron
-ELECTRON_VERSION=`curl --silent "https://api.github.com/repos/electron/electron/releases" | jq --raw-output ".[].tag_name" | cut -c2- | sort | grep -Ev "alpha|beta" | tail -1`
+ELECTRON_VERSION=`curl --silent "https://api.github.com/repos/electron/electron/releases" | jq --raw-output 'map(.tag_name) | map(select(contains("alpha") or contains ("beta") | not)) | sort | .[-1][1:]'`
 echo Using Election version ${ELECTRON_VERSION}
 
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
