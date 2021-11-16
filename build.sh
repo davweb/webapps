@@ -52,5 +52,5 @@ create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "UniFi Network" ubiquiti.png https://furia.home:8443/ --ignore-certificate
 create_app "BBC Sounds" bbc-sounds.png https://www.bbc.co.uk/sounds --internal-urls 'bbc.com' --internal-urls 'bbc.co.uk'
 create_app "Overcast" overcast.png https://overcast.fm/podcasts --inject './overcast.js'
-create_app "Amazon Prime Video" prime.png https://www.amazon.co.uk/gp/video/storefront/
 create_app "Dark Sky" dark-sky.png https://darksky.net/forecast/51.7453,-1.2916/uk212/en
+create_app "Plex" plex.png http://plex.home/web/index.html  --internal-urls 'plex.tv'
