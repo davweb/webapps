@@ -14,7 +14,7 @@ function create_app {
     echo Building ${NAME}...
 
     nativefier --electron-version ${ELECTRON_VERSION} ${EXTRAS} --name "${NAME}" --icon "${ICON}" --fast-quit  "${URL}" "${OUTPUT}" >/dev/null  2>&1
-    
+
     pkill "${NAME}" || true
 
     pushd ${OUTPUT}
@@ -46,7 +46,7 @@ brew upgrade nativefier
 
 # Use most recent version of electron
 ELECTRON_VERSION=`curl --silent "https://api.github.com/repos/electron/electron/releases" | jq --raw-output 'map(.tag_name) | map(select(contains("alpha") or contains ("beta") | not)) | sort | .[-1][1:]'`
-echo Using Election version ${ELECTRON_VERSION}
+echo Using Electron version ${ELECTRON_VERSION}
 
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "UniFi Network" ubiquiti.png https://furia.home:8443/ --ignore-certificate
