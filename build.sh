@@ -3,6 +3,9 @@
 # Set temporary working directory
 OUTPUT=/var/tmp
 
+# Set architecture
+ARCH=arm64
+
 # function to run nativefier and copy .app file
 function create_app {
     NAME=$1
@@ -18,11 +21,11 @@ function create_app {
     pkill "${NAME}" || true
 
     pushd ${OUTPUT}
-    pushd "${NAME}-darwin-x64"
+    pushd "${NAME}-darwin-${ARCH}"
     rm -rf "/Applications/${NAME}.app"
     mv "${NAME}.app" /Applications
     popd
-    rm -rf "${NAME}-darwin-x64"
+    rm -rf "${NAME}-darwin-${ARCH}"
     popd
 }
 
@@ -39,7 +42,7 @@ popd () {
 cd `dirname ${BASH_SOURCE}`
 
 # Clear out working files in case previous run was interupted
-rm -rf ${OUTPUT}/darwin-x64-template
+rm -rf ${OUTPUT}/darwin-${ARCH}-template
 
 # Update Nativefier
 brew upgrade nativefier
