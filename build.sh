@@ -53,4 +53,4 @@ echo Using Electron version ${ELECTRON_VERSION}
 
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "BBC Sounds" bbc-sounds.png https://www.bbc.co.uk/sounds --internal-urls 'bbc.com' --internal-urls 'bbc.co.uk'
-create_app "Dark Sky" dark-sky.png https://darksky.net/forecast/51.7453,-1.2916/uk212/en
+
