@@ -54,5 +54,5 @@ echo Using Electron version ${ELECTRON_VERSION}
 create_app "Board Game Arena" bga.png https://boardgamearena.com/
 create_app "BBC Sounds" bbc-sounds.png https://www.bbc.co.uk/sounds --internal-urls 'bbc.com' --internal-urls 'bbc.co.uk'
 create_app "Elk" elk.png https://elk.zone/  --internal-urls 'mastodonapp.uk'
-create_app "Hemingway" hemingway.png https://hemingwayapp.com
+create_app "Hemingway" hemingway.png https://4.hemingwayapp.com
 create_app "Fastmail" fastmail.png https://app.fastmail.com
